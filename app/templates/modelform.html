@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<form method="POST" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+
+    <p>
+        {{ form.title.label }}
+        {{ form.title(cols=64, rows=10) }}
+        
+        {% for error in form.title.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.file.label }}
+        {{ form.file(cols=64, rows=10) }}
+        
+        {% for error in form.file.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.fileSize.label }}
+        {{ form.fileSize(cols=64, rows=10,placeholder = "This has to be a number!") }}
+        
+        {% for error in form.fileSize.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.thumbnail.label }}
+        {{ form.thumbnail(cols=64, rows=10) }}
+        
+        {% for error in form.thumbnail.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.fileType.label }}
+        {{ form.fileType(cols=64, rows=10) }}
+        
+        {% for error in form.fileType.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+       <br>
+       <br> 
+        {{form.submit()}}
+    </p>
+</form>
+
+{% endblock %}

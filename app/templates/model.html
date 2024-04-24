@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+{% if blog %}
+    {{moment(model.create_title).calendar()}} by {{model.author.fname}} {{model.author.lname}} 
+    {% if blog.modifydate %}
+        modified {{moment(model.modifydate).calendar()}}
+    {% endif %}
+    <br>
+    {% if model.author == current_user %}
+        <a data-toggle="tooltip" data-placement="top" title="Delete Model" href="/model/delete/{{model.id}}">
+            <img width="40" class="bottom-image" src="/static/delete.png">
+        </a>
+        <a data-toggle="tooltip" data-placement="top" title="Edit Model" href="/model/edit/{{model.id}}">
+            <img width="40" class="bottom-image" src="/static/edit.png">
+        </a>
+    {% endif %}
+
+    <h1 class="display-5">{{model.title}}</h1>
+    <p class="fs-3 text-break">
+        {% if model.thumbnail %}
+            <img width="120" class="img-thumbnail float-start me-2" src="data:image;base64,{{base64encode(model.thumbnail.read())}}">
+        {% endif %}
+            {{model.file}} <br>
+            {{model.fileSize}}
+
+    </p>
+    <a href="/comment/new/{{blog.id}}" class="btn btn-primary btn-sm" role="button">New Model</a>
+
+    {% if models %}
+    <h1 class="display-5">Models</h1>
+    {% for model in models %}
+        {% if current_user == model.title %}
+            <a href="/model/delete/{{model.id}}"><img width="20" src="/static/delete.png"></a> 
+            <a href="/model/edit/{{model.id}}"><img width="20" src="/static/edit.png"></a>
+        {% endif %}
+        {{model(model.create_title).calendar()}} {{model.file.fileSize}} 
+        {% if model.modifydate %}
+            modified {{moment(model.modifydate).calendar()}}
+        {% endif %}
+        <br>
+        <p class="fs-3">
+            {{model.content}}
+        </p>
+    {% endfor %}
+    {% else %}
+        <h1 class="display-5">No Model</h1>
+    {% endif %}
+{% else %}
+
+{% endif %}
+
+{% endblock %}

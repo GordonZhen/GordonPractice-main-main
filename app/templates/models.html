@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+{% if models %}
+    {% for model in models %}
+        <div class="row border-bottom">
+            <div class="col-2">
+                {% if loop.index == 1 %}
+                <h3 class="display-5"><u>title</u></h3>
+                {% endif %}
+                <a href="/model/{{model.id}}">
+                    {{model.title}}</a>
+            </div>
+
+            <div class="col-2">
+                {% if loop.index == 1 %}
+                <h3 class="display-5"><u>file</u></h3>
+                {% endif %}
+                {{model.file}}
+            </div>
+            <div class="col-2">
+                {% if loop.index == 1 %}
+                    <h3 class="display-5"><u>fileSize</u></h3>
+                {% endif %}
+                {{model.fileSize}}
+            </div>
+            <div class="col-2">
+                {% if loop.index == 1 %}
+                    <h3 class="display-5"><u>thumbnail</u></h3>
+                {% endif %}
+                {{model.thumbnail}}
+            </div>
+            <div class="col-2">
+                {% if loop.index == 1 %}
+                    <h3 class="display-5"><u>fileType</u></h3>
+                {% endif %}
+                {{model.fileType}}
+            </div>
+        </div>
+    {% endfor %}
+{% else %}
+
+{% endif %}
+
+{% endblock %}

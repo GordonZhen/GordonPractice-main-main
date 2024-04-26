@@ -14,10 +14,10 @@
         {% endfor %}
     </p>
     <p>
-        {{ form.file.label }}
+        {{ form.dimension.label }}
         {{ form.file(cols=64, rows=10) }}
         
-        {% for error in form.file.errors %}
+        {% for error in form.dimension.errors %}
             <span style="color: red;">[{{ error }}]</span>
         {% endfor %}
     </p>
@@ -30,8 +30,8 @@
         {% endfor %}
     </p>
     <p>
-        {{ form.thumbnail.label }}
-        {{ form.thumbnail(cols=64, rows=10) }}
+        {{ form.creationDate.label }}
+        {{ form.creationDate(cols=64, rows=10) }}
         
         {% for error in form.thumbnail.errors %}
             <span style="color: red;">[{{ error }}]</span>

@@ -6,7 +6,7 @@ from flask_wtf import FlaskForm
 import mongoengine.errors
 from wtforms.validators import URL, Email, DataRequired, NumberRange
 from wtforms.fields.html5 import URLField, DateField, IntegerRangeField, EmailField
-from wtforms import StringField, SubmitField, TextAreaField, IntegerField, SelectField, FileField, RadioField
+from wtforms import StringField, SubmitField, TextAreaField, IntegerField, SelectField, FileField, RadioField, FloatField
 from wtforms_components import TimeField
 
 class ProfileForm(FlaskForm):
@@ -60,8 +60,12 @@ class BookForm(FlaskForm):
 
 class ModelForm(FlaskForm):
     title = StringField("Title", validators=[DataRequired()])
-    file = FileField()
     fileSize = IntegerField()
-    thumbnail = FileField()
-    fileType = FileField()
+    dimension = StringField()
+    creationDate = FloatField()
+    fileType = StringField()
+    # file = FileField()
+    # thumbnail = FileField()
+    # fileType = FileField()
+
     submit =SubmitField("Submit")

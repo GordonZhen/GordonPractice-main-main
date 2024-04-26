@@ -103,10 +103,13 @@ class Clinic(Document):
 class Model(Document):
     author = ReferenceField('User',reverse_delete_rule=CASCADE) 
     title = StringField()
-    file = FileField()
     fileSize = IntField()
-    thumbnail = FileField()
-    fileType = FileField()
+    dimension = StringField()
+    creationDate = FloatField()
+    fileType = StringField()
+    # file = FileField()
+    # thumbnail = FileField()
+    # fileType = FileField()
 
     meta = {
         'ordering': ['-createdate']

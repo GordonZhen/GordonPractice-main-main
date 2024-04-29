@@ -64,8 +64,4 @@ class ModelForm(FlaskForm):
     dimension = StringField()
     creationDate = FloatField()
     fileType = StringField()
-    # file = FileField()
-    # thumbnail = FileField()
-    # fileType = FileField()
-
     submit =SubmitField("Submit")

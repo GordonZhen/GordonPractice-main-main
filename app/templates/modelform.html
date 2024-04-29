@@ -15,7 +15,7 @@
     </p>
     <p>
         {{ form.dimension.label }}
-        {{ form.file(cols=64, rows=10) }}
+        {{ form.dimension(cols=64, rows=10) }}
         
         {% for error in form.dimension.errors %}
             <span style="color: red;">[{{ error }}]</span>
@@ -33,7 +33,7 @@
         {{ form.creationDate.label }}
         {{ form.creationDate(cols=64, rows=10) }}
         
-        {% for error in form.thumbnail.errors %}
+        {% for error in form.creationDate.errors %}
             <span style="color: red;">[{{ error }}]</span>
         {% endfor %}
     </p>

@@ -1,4 +1,3 @@
-
 from app import app
 import mongoengine.errors
 from flask import render_template, flash, redirect, url_for
@@ -48,21 +47,17 @@ def modelNew():
     if form.validate_on_submit():
         newModel = Model(
             title = form.title.data,
-            file = form.file.data,
+            dimension = form.dimension.data,
+            creationDate = form.creationDate.data,
             fileSize = form.fileSize.data,
-            # thumbnail = form.thumbnail.data,
             fileType = form.fileType.data,
 
         )
-        # if form.thumbnail.data:
-        #     newModel.thumbnail.put(form.thumbnail.data, content_type = 'image/jpeg')
-            # newModel.save()
+        newModel.save()
      
         newModel.save()
         
-
         return redirect(url_for('model',modelID=newModel.id))
-    
     return render_template('modelform.html',form=form) 
 
 @app.route('/model/edit/<modelID>', methods=['GET', 'POST'])
@@ -81,29 +76,20 @@ def modelEdit(modelID):
 
         editModel.update(
             title = form.title.data,
-            file = form.file.data,
+            dimension = form.dimension.data,
+            creationDate = form.creationDate.data,
             fileSize = form.fileSize.data,
-            # thumbnail = form.thumbnail.data,
             fileType = form.fileType.data,
 
         )
-        if editModel.thumbnail:
-               editModel.thumbnail.delete()
-               editModel.thumbnail.put(form.thumbnail.data, content_type = 'image/jpeg')
         editModel.save()
 
         return redirect(url_for('model',modelID=modelID))
     
     form.title.data = editModel.title
-    form.file.data = editModel.file
+    form.dimension.data = editModel.dimension
+    form.creationDate.data = editModel.creationDate
     form.fileSize.data = editModel.fileSize
-    form.thumbnail.data = editModel.thumbnail
     form.fileType.data = editModel.fileType
 
     return render_template('modelform.html',form=form)
-
-
-
-
-
-

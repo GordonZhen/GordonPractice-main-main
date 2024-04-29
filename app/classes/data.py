@@ -107,25 +107,6 @@ class Model(Document):
     dimension = StringField()
     creationDate = FloatField()
     fileType = StringField()
-    # file = FileField()
-    # thumbnail = FileField()
-    # fileType = FileField()
-
     meta = {
         'ordering': ['-createdate']
     }
-
-# class AstronomicalObject(Document):
-#     type = StringField()
-#     name = StringField()
-#     mass = IntField()
-#     radius = IntField()
-#     model = FileField()
-
-
-# class AstronomicialBody(Document):
-#     type = StringField()
-#     name = StringField()
-#     mass= IntField()
-#     radius = IntField()
-#     Model = FileField()

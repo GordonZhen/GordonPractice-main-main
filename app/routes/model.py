@@ -51,6 +51,7 @@ def modelNew():
             creationDate = form.creationDate.data,
             fileSize = form.fileSize.data,
             fileType = form.fileType.data,
+            fileLink = form.fileLink.data,
 
         )
         newModel.save()
@@ -80,6 +81,7 @@ def modelEdit(modelID):
             creationDate = form.creationDate.data,
             fileSize = form.fileSize.data,
             fileType = form.fileType.data,
+            fileLink = form.fileLink.data,
 
         )
         editModel.save()
@@ -91,5 +93,6 @@ def modelEdit(modelID):
     form.creationDate.data = editModel.creationDate
     form.fileSize.data = editModel.fileSize
     form.fileType.data = editModel.fileType
+    form.fileLink.data = editModel.fileLink
 
     return render_template('modelform.html',form=form)

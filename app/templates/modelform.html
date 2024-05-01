@@ -38,6 +38,14 @@
         {% endfor %}
     </p>
     <p>
+        {{ form.fileLink.label }}
+        {{ form.fileLink(cols=64, rows=10) }}
+        
+        {% for error in form.fileLink.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
         {{ form.fileType.label }}
         {{ form.fileType(cols=64, rows=10) }}
         

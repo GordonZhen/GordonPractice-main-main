@@ -107,6 +107,7 @@ class Model(Document):
     dimension = StringField()
     creationDate = FloatField()
     fileType = StringField()
+    fileLink =StringField()
     meta = {
         'ordering': ['-createdate']
     }

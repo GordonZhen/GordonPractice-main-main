@@ -7,7 +7,7 @@
 
     <p>
         {{ form.title.label }}
-        {{ form.title(cols=64, rows=10) }}
+        {{ form.title(cols=64, rows=10,placeholder="string") }}
         
         {% for error in form.title.errors %}
             <span style="color: red;">[{{ error }}]</span>
@@ -15,7 +15,7 @@
     </p>
     <p>
         {{ form.dimension.label }}
-        {{ form.dimension(cols=64, rows=10) }}
+        {{ form.dimension(cols=64, rows=10,placeholder="integer") }}
         
         {% for error in form.dimension.errors %}
             <span style="color: red;">[{{ error }}]</span>
@@ -23,7 +23,7 @@
     </p>
     <p>
         {{ form.fileSize.label }}
-        {{ form.fileSize(cols=64, rows=10,placeholder = "This has to be a number!") }}
+        {{ form.fileSize(cols=64, rows=10,placeholder = "integer") }}
         
         {% for error in form.fileSize.errors %}
             <span style="color: red;">[{{ error }}]</span>
@@ -31,7 +31,7 @@
     </p>
     <p>
         {{ form.creationDate.label }}
-        {{ form.creationDate(cols=64, rows=10) }}
+        {{ form.creationDate(cols=64, rows=10 , placeholder = "float") }}
         
         {% for error in form.creationDate.errors %}
             <span style="color: red;">[{{ error }}]</span>
@@ -39,7 +39,7 @@
     </p>
     <p>
         {{ form.fileLink.label }}
-        {{ form.fileLink(cols=64, rows=10) }}
+        {{ form.fileLink(cols=64, rows=10, placeholder = "string") }}
         
         {% for error in form.fileLink.errors %}
             <span style="color: red;">[{{ error }}]</span>
@@ -47,7 +47,7 @@
     </p>
     <p>
         {{ form.fileType.label }}
-        {{ form.fileType(cols=64, rows=10) }}
+        {{ form.fileType(cols=64, rows=10, placeholder = "string") }}
         
         {% for error in form.fileType.errors %}
             <span style="color: red;">[{{ error }}]</span>

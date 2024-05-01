@@ -2,7 +2,7 @@
 
 {% block body %}
 
-{% if blog %}
+{% if model %}
     {{moment(model.create_title).calendar()}} by {{model.author.fname}} {{model.author.lname}} 
     {% if blog.modifydate %}
         modified {{moment(model.modifydate).calendar()}}
@@ -26,14 +26,14 @@
             {{model.fileSize}}
 
     </p>
-    <a href="/comment/new/{{blog.id}}" class="btn btn-primary btn-sm" role="button">New Model</a>
+    <a href="/comment/new/{{model.id}}" class="btn btn-primary btn-sm" role="button">New Model</a>
 
     {% if models %}
     <h1 class="display-5">Models</h1>
     {% for model in models %}
         {% if current_user == model.title %}
-            <a href="/model/delete/{{model.id}}"><img width="20" src="/static/delete.png"></a> 
-            <a href="/model/edit/{{model.id}}"><img width="20" src="/static/edit.png"></a>
+            <a href="/model/delete/{{model.id}}"><img width="20" src="/static/trashcane.png"></a> 
+            <a href="/model/edit/{{model.id}}"><img width="20" src="/static/edit_image.png"></a>
         {% endif %}
         {{model(model.create_title).calendar()}} {{model.file.fileSize}} 
         {% if model.modifydate %}

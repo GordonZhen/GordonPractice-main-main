@@ -62,7 +62,7 @@ class ModelForm(FlaskForm):
     title = StringField("Title", validators=[DataRequired()])
     fileSize = IntegerField()
     dimension = StringField()
-    creationDate = FloatField()
+    creationDate = StringField()
     fileType = StringField()
     fileLink= StringField()
     submit =SubmitField("Submit")

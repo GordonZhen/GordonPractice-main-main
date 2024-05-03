@@ -21,7 +21,7 @@ def modelList():
 
 def model(modelID):
     thisModel = Model.objects.get(id=modelID)
-    return render_template('models.html',model=thisModel)
+    return render_template('model.html',model=thisModel)
 
 @app.route('/model/delete/<modelID>')
 @login_required
@@ -52,7 +52,7 @@ def modelNew():
             fileSize = form.fileSize.data,
             fileType = form.fileType.data,
             fileLink = form.fileLink.data,
-
+            author = current_user
         )
         newModel.save()
      

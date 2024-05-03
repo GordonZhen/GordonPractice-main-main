@@ -105,7 +105,7 @@ class Model(Document):
     title = StringField()
     fileSize = IntField()
     dimension = StringField()
-    creationDate = FloatField()
+    creationDate = StringField()
     fileType = StringField()
     fileLink =StringField()
     meta = {

@@ -5,46 +5,47 @@
 {% if model %}
     
     <br>
-    {% if model %}
-        <a data-toggle="tooltip" data-placement="top" title="Delete Model" href="/model/delete/{{model.id}}">
-            <img width="40" class="bottom-image" src="/static/trashcan.png">
-        </a>
-        <a data-toggle="tooltip" data-placement="top" title="Edit Model" href="/model/edit/{{model.id}}">
-            <img width="40" class="bottom-image" src="/static/edit_image.png">
-        </a>
-    {% endif %}
+    <a data-toggle="tooltip" data-placement="top" title="Delete Model" href="/model/delete/{{model.id}}"> <b> Delete: </b>
+        <img width="40" class="bottom-image" src="/static/trashcan.png">
+    </a>
+    <a data-toggle="tooltip" data-placement="top" title="Edit Model" href="/model/edit/{{model.id}}"> <b> Edit: </b>
+        <img width="40" class="bottom-image" src="/static/edit_image.png">
+    </a>
 
-    <h1 class="display-5">{{model.title}}</h1>
-    <p class="fs-3 text-break">
-        {% if model %}
-            <img width="120" class="img-thumbnail float-start me-2" src="data:image;base64,{{base64encode(model.thumbnail.read())}}">
-        {% endif %}
-            {{model.fileLink}} 
-            <br>
-            {{model.fileSize}}
+    
+    
 
-    </p>
-    <a href="/comment/new/{{model.id}}" class="btn btn-primary btn-sm" role="button">New Model</a>
-
-    {% if model %}
-    <h1 class="display-5">Models</h1>
-    {% for model in models %}
-        {% if current_user == model.title %}
-            <a href="/model/delete/{{model.id}}"><img width="20" src="/static/trashcane.png"></a> 
-            <a href="/model/edit/{{model.id}}"><img width="20" src="/static/edit_image.png"></a>
-        {% endif %}
-        {{model(model.create_title).calendar()}} {{model.file.fileSize}} 
-        {% if model %}
-
-        {% endif %}
+    <div>
+        <h3><u> Title: </u></h3> {{model.title}}   
+        
         <br>
-        <p class="fs-3">
-            {{model}}
-        </p>
-    {% endfor %}
-    {% else %}
-        <h1 class="display-5">No Model</h1>
-    {% endif %}
+        
+        <h3><u> File Size:</u></h3> {{model.fileSize}}
+
+        <br>
+
+        <h3><u>Dimension:</u></h3> {{model.dimension}}
+
+        <br>
+
+        <h3><u> Creation Date:</u> </h3>  {{model.creationDate}}
+
+        <br>
+
+        <h3><u> File Type:</u></h3>  {{model.fileType}}
+
+        <br>
+
+        <h3><u>File Link:</u></h3>{{model.fileLink}} 
+
+        <br>
+        
+        
+    
+    
+    
+    </div>
+
 {% else %}
 
 {% endif %}
